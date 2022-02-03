@@ -19,8 +19,8 @@ class LinkService:
         return Link.query.get(link_id)
 
     @staticmethod
-    def update(link: Link, Link_change_updates: LinkInterface) -> Link:
-        link.update(Link_change_updates)
+    def update(link: Link, link_change_updates: LinkInterface) -> Link:
+        link.update(link_change_updates)
         db.session.commit()
         return link
 

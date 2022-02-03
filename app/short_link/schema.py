@@ -1,4 +1,4 @@
-from marshmallow import fields, Schema
+from marshmallow import fields, Schema, validate
 
 
 class LinkSchema(Schema):
@@ -13,4 +13,4 @@ class CreateLinkSchema(Schema):
     """schema for short links creation"""
     linkId = fields.Number(attribute='link_id')
     originalLink = fields.String(attribute='original_link')
-    daysToExpiration = fields.Number(attribute='days_to_expiration')
+    daysToExpiration = fields.Number(attribute='days_to_expiration', validate=validate.Range(1, 365))
