@@ -15,5 +15,4 @@ class CreateInterface(TypedDict, total=False):
     """interface for link creation"""
     link_id: int
     original_link: str
-    short_id: str
     days_to_expiration: int
