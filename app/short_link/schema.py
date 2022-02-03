@@ -6,7 +6,7 @@ class LinkSchema(Schema):
     linkId = fields.Number(attribute='link_id')
     originalLink = fields.String(attribute='original_link')
     shortId = fields.String(attribute='short_id')
-    expiresAt = fields.DateTime(attribute='expires_at')
+    expiresAt = fields.Date(attribute='expires_at')
 
 
 class CreateLinkSchema(Schema):
