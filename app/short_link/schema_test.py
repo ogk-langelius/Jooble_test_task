@@ -7,6 +7,7 @@ from .schema import LinkSchema, CreateLinkSchema
 from .model import Link
 from .utils import make_expiration_date
 
+
 @fixture()
 def link_schema() -> LinkSchema:
     return LinkSchema()

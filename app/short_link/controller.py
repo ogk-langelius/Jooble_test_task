@@ -42,7 +42,8 @@ class LinkIDResource(Resource):
         """Delete link by id"""
         from flask import jsonify
 
-        return jsonify(dict(status='Success', id=LinkService.delete_by_id(linkID)))
+        return jsonify(dict(status='Success',
+                            id=LinkService.delete_by_id(linkID)))
 
     @accepts(schema=LinkSchema, api=api)
     @responds(schema=LinkSchema)

@@ -13,7 +13,9 @@ class Link(db.Model):
     link_id = Column(Integer(), primary_key=True)
     original_link = Column(String(2048), nullable=False)
     short_id = Column(String(8), nullable=False, unique=True)
-    expires_at = Column(Date(), nullable=False, default=date.today() + timedelta(days=90))
+    expires_at = Column(Date(),
+                        nullable=False,
+                        default=date.today()+timedelta(days=90))
 
     def update(self, changes: LinkInterface):
         """Update via dictionary."""

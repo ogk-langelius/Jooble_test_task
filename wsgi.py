@@ -8,7 +8,7 @@ from app import scheduler
 
 from app.short_link.utils import clear_expired_links
 
-app = create_app('dev')    #(os.getenv('FLASK_ENV') or 'test')
+app = create_app(os.getenv('FLASK_ENV') or 'test')
 app.app_context().push()
 
 scheduler.add_job(
