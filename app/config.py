@@ -15,7 +15,7 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@localhost:5432/app-dev'.format(
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@db:5432/app_dev'.format(
         os.getenv('POSTGRES_USER'),
         os.getenv('POSTGRES_PASSWORD'))
 
@@ -28,14 +28,14 @@ class TestingConfig(BaseConfig):
     TESTING = True
     DB_USER = os.getenv('POSTGRES_USER')
     DB_PASS = os.getenv('POSTGRES_PASSWORD')
-    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@localhost:5432/app-test'.format(
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@db:5432/app_dev'.format(
         os.getenv('POSTGRES_USER'),
         os.getenv('POSTGRES_PASSWORD'))
 
 
 class ProdConfig(BaseConfig):
     CONFIG_NAME = 'prod'
-    SECRET_KEY = os.getenv('TEST_SECRET_KEY')
+    SECRET_KEY = os.getenv('PROD_SECRET_KEY')
     DEBUG = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DB_USER = os.getenv('POSTGRES_USER')

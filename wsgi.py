@@ -21,5 +21,5 @@ scheduler.add_job(
 
 if __name__ == '__main__':
     scheduler.start()
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5555)
     atexit.register(lambda: scheduler.shutdown())
