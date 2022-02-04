@@ -56,6 +56,6 @@ class LinkIDResource(Resource):
 @api.route('/<shortID>')
 @api.param('shortID')
 class RedirectResource(Resource):
-    """Redirect to actual url"""
     def get(self, shortID: str):
+        """Redirect to actual url"""
         return LinkService.redirect(shortID)
