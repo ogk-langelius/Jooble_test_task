@@ -23,5 +23,7 @@ def clear_expired_links():
     """Function to clear expired links"""
     app = create_app('dev')
     app.app_context().push()
-    db.session.query(Link).filter(Link.expires_at == date.today()).delete(synchronize_session=False)
+    db.session.query(Link).filter(
+        Link.expires_at == date.today()
+    ).delete(synchronize_session=False)
     db.session.commit()
