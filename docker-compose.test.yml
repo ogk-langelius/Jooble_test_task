@@ -10,6 +10,7 @@ services:
     ports:
       - 5555:5555
     env_file:
+      - ./env/.env
       - ./env/.env.test
     depends_on:
       - db
