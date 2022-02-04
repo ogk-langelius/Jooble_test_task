@@ -50,7 +50,7 @@ class LinkService:
 
     @staticmethod
     def redirect(short_id: str):
-        link = Link.query.filter_by(short_id=short_id).first()
+        link = Link.query.filter(Link.short_id == short_id).first()
         if link:
             return redirect(link.original_link)
         else:
