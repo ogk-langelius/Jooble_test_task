@@ -116,3 +116,21 @@ def test_get_by_id(db: SQLAlchemy):
     db.session.commit()
 
     assert Link.query.get(tlink1.link_id)
+
+
+def test_redirect(db: SQLAlchemy):
+    tlink1: Link = Link(
+        link_id=1,
+        original_link='https://www.google.com.ua',
+        short_id='testv1',
+        expires_at=date(2022, 2, 28)
+    )
+
+    db.session.add(tlink1)
+    db.session.commit()
+
+    result1 = LinkService.redirect('testv1')
+    result2 = LinkService.redirect('testv2')
+
+    assert result1.status_code == 302
+    assert result2.status_code == 200
